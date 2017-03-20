@@ -51,4 +51,4 @@ UserSchema.methods.comparePassword = function (pw, cb) {
         cb(null, isMatch);
     });
 };
-module.export = UserSchema;
+module.exports = UserSchema;

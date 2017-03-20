@@ -30,7 +30,7 @@ exports.findById = id => {
 
 exports.findByName = name => {
     return new Promise((resolve, reject) => {
-        db.userModel.find({name:name}, (error, user) => {
+        db.userModel.findOne({ name: name }, (error, user) => {
             if (error) {
                 reject(error);
             } else {
