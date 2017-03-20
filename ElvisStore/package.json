@@ -1,0 +1,15 @@
+{
+  "name": "elvis-store",
+  "version": "0.0.0",
+  "description": "ElvisStore",
+  "main": "app.js",
+  "author": {
+    "name": "julio"
+  },
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "express": "^4.15.2",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0"
+  }
+}
