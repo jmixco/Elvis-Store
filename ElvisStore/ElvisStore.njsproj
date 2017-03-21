@@ -29,13 +29,15 @@
     <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="app\controller\auth.js" />
+    <Compile Include="app\controller\authController.js" />
+    <Compile Include="app\controller\productController.js" />
     <Compile Include="app\controller\test.js" />
+    <Compile Include="app\middleware\index.js" />
     <Compile Include="index.js" />
     <Compile Include="app\auth\index.js" />
     <Compile Include="app\config\index.js" />
     <Compile Include="app\controller\index.js" />
-    <Compile Include="app\controller\register.js" />
+    <Compile Include="app\controller\registerController.js" />
     <Compile Include="app\controller\person.js" />
     <Compile Include="app\db\index.js" />
     <Compile Include="app\db\product.js" />
@@ -45,6 +47,8 @@
     <Compile Include="app\index.js" />
     <Compile Include="app\model\index.js" />
     <Content Include="app\config\development.json" />
+    <Content Include="app\db\purchaseHistory.js" />
+    <Content Include="app\model\productModel.js" />
     <Content Include="package.json" />
     <Content Include="README.md" />
   </ItemGroup>
@@ -56,6 +60,7 @@
     <Folder Include="app\model\" />
     <Folder Include="app\db\" />
     <Folder Include="app\auth\" />
+    <Folder Include="app\middleware\" />
   </ItemGroup>
   <!-- Do not delete the following Import Project.  While this appears to do nothing it is a marker for setting TypeScript properties before our import that depends on them. -->
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="False" />

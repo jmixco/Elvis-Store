@@ -2,11 +2,12 @@
 const express = require('express');
 const passport = require('passport');
 const router = express.Router();
+const middleware = require('../middleware');
 
-// Protect dashboard route with JWT
-router.get('/test', passport.authenticate('jwt', { session: false }), function (req, res) {
+// Protect action route with JWT
+router.get('/test', middleware.adminRequired, function (req, res) {
     res.status(200);
-    res.send('It worked! User id is: ' + req.user._id + '.');
+    res.send('It worked! User id is: ' + req.user._id + '. User name is: '+ req.user.name);
 });
 
 module.exports = router;

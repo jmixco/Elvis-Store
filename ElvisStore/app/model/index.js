@@ -1,7 +1,9 @@
 'use strict';
-const user = require('./userModel');
+
 
 module.exports = {
-    user
+    user: require('./userModel'),
+    Product: require('./productModel'),
+
 
 };

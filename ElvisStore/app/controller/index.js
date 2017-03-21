@@ -4,8 +4,9 @@ const router = express.Router();
 
 
 router.use('/', require('./person'),
-    require('./auth'),
-    require('./register'),
+    require('./authController'),
+    require('./registerController'),
+    require('./productController'),
     require('./test'));
 
 module.exports = router;
