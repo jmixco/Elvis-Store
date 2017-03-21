@@ -10,12 +10,16 @@ var ProductSchema = new mongoose.Schema({
     },
     cost: {
         type: Number,
+        get: v => parseFloat(v).toFixed(2),
+        set: v => parseFloat(v).toFixed(2),
         required: true,
         min: 0,
         default: 0
     },
     inStock: {
         type: Number,
+        get: v => Math.round(v),
+        set: v => Math.round(v),
         required: true,
         min: 0,
         default: 0

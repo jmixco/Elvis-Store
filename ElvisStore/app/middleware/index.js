@@ -35,9 +35,15 @@ let adminRequired = (req, res, next) => {
 };
 
 let loginRequired = (req, res, next) => {
-    passport.authenticate('jwt', { session: false }), function (req, res) {
+    passport.authenticate('jwt', { session: false }, function (err, payload, info) {
+
+        if (err) { return next(err); }
+        if (!payload) { return unauthorized(req, res); }
+        let user = payload._doc;
+
+        req.user = user;
         next();
-    }
+    })(req, res, next);
 };
 
 

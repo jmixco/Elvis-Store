@@ -3,16 +3,12 @@ var mongoose = require('mongoose');
 // Schema defines how the data will be stored in MongoDB
 let PurchaseHistorySchema = new mongoose.Schema({
     userId: {
-        type: String,
-        lowercase: true,
-        unique: true,
-        required: true
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User'
     },
     productId: {
-        type: Number,
-        required: true,
-        min: 0,
-        default: 0
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Product'
     },
     quantity: {
         type: Number,

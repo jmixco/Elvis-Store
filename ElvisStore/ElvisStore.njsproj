@@ -32,6 +32,7 @@
     <Compile Include="app\controller\authController.js" />
     <Compile Include="app\controller\productController.js" />
     <Compile Include="app\controller\test.js" />
+    <Compile Include="app\db\productPriceHistory.js" />
     <Compile Include="app\middleware\index.js" />
     <Compile Include="index.js" />
     <Compile Include="app\auth\index.js" />
