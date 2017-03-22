@@ -8,9 +8,9 @@
 <body>
     <div ng-controller="searchController as ctrl" ng-init="init()">
 
-        <label for="filt">filter</label><input id="filt" ng-model-options="{ debounce: 200 }" ng-model="filter" ng-change="onFilter()"/>
+        <label for="filt">filter</label><input id="filt" ng-model-options="{ debounce: 500 }" ng-model="filter" ng-change="onFilter()"/>
         <ul>
-            <li ng-repeat="p in products">{{p.name}} -- $ {{p.cost}}</li>
+            <li ng-repeat="p in products track by p._id">{{p.name}} -- $ {{p.cost}}</li>
             
         </ul>
     </div>
