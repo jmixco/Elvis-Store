@@ -1,6 +1,6 @@
 ﻿# ElvisStore
 
-##DEMO:
+## DEMO:
 [Heroku demo ](https://elvis-tek-mix.herokuapp.com/).
 
 ## Run this project
@@ -12,7 +12,7 @@ npm install
 npm start
 ```
 
-##Postman 
+## Postman 
 Here is the postman collection link. 
 To login run authenticate and it will set the session token automatically.
 Make sure you have your environment variable "elvistoken" set.
