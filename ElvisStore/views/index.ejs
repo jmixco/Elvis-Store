@@ -15,7 +15,7 @@
         <h2>Elvis products</h2>
         <br />
     </div>
-    <div class="col-md-offset-3 col-md-6" ng-controller="searchController as ctrl" ng-init="init()">
+    <div class="col-md-offset-3 col-md-6" ng-controller="searchController as ctrl" ng-init="init('<%= host+'/api'%>')">
 
         <div class="form-group form-inline">
             <label for="filt">Product filter</label>

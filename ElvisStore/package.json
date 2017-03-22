@@ -3,6 +3,9 @@
   "version": "0.0.0",
   "description": "ElvisStore",
   "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
   "author": {
     "name": "julio"
   },
