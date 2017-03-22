@@ -94,8 +94,8 @@ router.delete('/product/:id', middleware.adminRequired, function (req, res) {
         });
 });
 
-router.patch('/product/:id/stock/:stock', middleware.adminRequired, function (req, res) {
-    Product.setStockById(req.params.id, req.params.stock)
+router.patch('/product/:id/stock/', middleware.adminRequired, function (req, res) {
+    Product.setStockById(req.params.id, req.body.stock)
         .then(product => {
             res.status(200);
             res.send(product);
@@ -105,8 +105,8 @@ router.patch('/product/:id/stock/:stock', middleware.adminRequired, function (re
         });
 });
 
-router.patch('/product/:id/price/:price', middleware.adminRequired, function (req, res) {
-    Product.setCostById(req.params.id, req.user._id, req.params.price)
+router.patch('/product/:id/price/', middleware.adminRequired, function (req, res) {
+    Product.setCostById(req.params.id, req.user._id, req.body.price)
         .then(product => {
             res.status(200);
             res.send(product);
@@ -116,9 +116,9 @@ router.patch('/product/:id/price/:price', middleware.adminRequired, function (re
         });
 });
 
-router.put('/product/:id/buy/:quantity', middleware.loginRequired, function (req, res) {
+router.put('/product/:id/buy/', middleware.loginRequired, function (req, res) {
 
-    Product.buy(req.params.id, req.user._id, req.params.quantity)
+    Product.buy(req.params.id, req.user._id, req.body.quantity)
         .then((product) => {
             res.status(200);
             res.send(product);

@@ -146,9 +146,10 @@ let setStockById = (productId, quantity) => {
         });
 };
 let setCostById = (productId, userId, cost) => {
+    let prevCost = 0;
     return findById(productId)
         .then((product) => {
-            let prevCost = product.cost;
+            prevCost = product.cost;
             product.cost = cost;
             return product.save();
         })
