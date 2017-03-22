@@ -13,7 +13,13 @@ let create = function (name, cost, quantity) {
 
 }
 let deleteById = function (productId) {
-    return db.productModel.findByIdAndRemove(productId).exec();
+    return findById(productId)
+        .then((product) => {
+            product.active = false;
+            return product.save();
+        });
+
+   // db.productModel.findByIdAndRemove(productId).exec();
 };
 //########### Queries ###########
 let all = (sortField) => {
@@ -25,10 +31,11 @@ let all = (sortField) => {
         byPopularity = true;
         sortField = 'name';
     }
-    return db.productModel.find()
+    return db.productModel.find({ active: true })
         .sort({ [sortField]: 1 })
         .exec()
         .then(products => {
+            
             if (byPopularity) {
                 products.sort(function (a, b) {
                     return b.likes.length - a.likes.length;
@@ -43,7 +50,7 @@ let filterByName = (name, sortField) => {
         sortField = 'name'
     }
     return db.productModel
-        .find({ name: new RegExp(name, "i") })
+        .find({ name: new RegExp(name, "i"),active:true })
         .sort({ [sortField]: 1 })
         .exec();
 };
@@ -52,7 +59,7 @@ let findById = id => {
         .findById(id)
         .exec()
         .then(product => {
-            if (!product) {
+            if (!product || !product.active) {
                 throw { statusCode: 404, message: "Product not found." };
             }
             return product;
@@ -62,7 +69,7 @@ let findByName = name => {
     return db.productModel.findOne({ name: name })
         .exec()
         .then(product => {
-            if (!product) {
+            if (!product || !product.active) {
                 throw { statusCode: 404, message: "Product not found." };
             }
             return product;
@@ -79,8 +86,6 @@ let buy = (productid, userid, quantity) => {
 
     return findById(productid)
         .then(product => {
-
-
             if (quantity <= 0) {
                 throw "Product quantity should be >0.";
             }
