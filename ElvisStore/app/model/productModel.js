@@ -134,8 +134,6 @@ let likeById = (productId, userId, doLike) => {
             }
             return product.save();
         });
-
-
 };
 
 let setStockById = (productId, quantity) => {

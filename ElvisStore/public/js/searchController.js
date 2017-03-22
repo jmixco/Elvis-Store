@@ -1,4 +1,3 @@
-angular.module('app', []);
 angular.module('app').controller('searchController', ['$scope', '$http', function ($scope, $http) {
     var that = $scope;
     that.apiURL = 'http://localhost:3000/api';
@@ -15,9 +14,9 @@ angular.module('app').controller('searchController', ['$scope', '$http', functio
     that.onFilter = () => {
         if (!that.filter || that.filter === '') {
             that.doFilter = false;
-           
+
         } else {
-            that.doFilter = true;            
+            that.doFilter = true;
         }
         console.log("filter", that.filter);
         that.updateProducts();
@@ -32,7 +31,7 @@ angular.module('app').controller('searchController', ['$scope', '$http', functio
             });
     };
     that.getProducts = () => {
-        var url = that.apiURL+'/product';
+        var url = that.apiURL + '/product';
         if (that.doFilter) {
             url += '?name=' + that.filter;
         }

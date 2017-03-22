@@ -4,6 +4,7 @@ const express = require('express');
 const passport = require('passport');
 const router = express.Router();
 const middleware = require('../middleware');
+const config = require('../config');
 const Product = require('../model').Product;
 function resolveProducts(req, res, promise) {
     promise.then((products) => {
@@ -65,11 +66,11 @@ router.get('/product/:id', function (req, res) {
 });
 router.post('/product/', middleware.adminRequired, function (req, res) {
     let newProduct = req.body;
-    let uri = url.parse(req.url);
+    let uri = url.parse(req.originalUrl);
     Product.create(newProduct.name, newProduct.cost, newProduct.quantity)
         .then(product => {
             res.status(201);
-            res.set({ 'Location': `${uri.path}/${product._id}` });
+            res.set({ 'Location': `${config.host}${uri.pathname}${product._id}` });
             res.json(product);
         })
         .catch(error => {
