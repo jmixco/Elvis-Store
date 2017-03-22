@@ -47,10 +47,13 @@
     <Compile Include="app\model\userModel.js" />
     <Compile Include="app\index.js" />
     <Compile Include="app\model\index.js" />
+    <Compile Include="public\angular.min.js" />
+    <Compile Include="public\script.js" />
     <Content Include="app\config\development.json" />
     <Content Include="app\db\purchaseHistory.js" />
     <Content Include="app\model\productModel.js" />
     <Content Include="package.json" />
+    <Content Include="views\index.ejs" />
     <Content Include="README.md" />
   </ItemGroup>
   <ItemGroup>
@@ -62,6 +65,8 @@
     <Folder Include="app\db\" />
     <Folder Include="app\auth\" />
     <Folder Include="app\middleware\" />
+    <Folder Include="views\" />
+    <Folder Include="public\" />
   </ItemGroup>
   <!-- Do not delete the following Import Project.  While this appears to do nothing it is a marker for setting TypeScript properties before our import that depends on them. -->
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="False" />
