@@ -23,7 +23,7 @@ module.exports = function (passport) {
     opts.jwtFromRequest = ExtractJwt.fromAuthHeader();
     opts.secretOrKey = config.sessionSecret;
     function tokenAuthProcessor (jwt_payload, done) {
-        User.findById(jwt_payload._doc._id)
+        User.findById(jwt_payload.id)
             .then(user => {
                 if (user) {
                     done(null, user);

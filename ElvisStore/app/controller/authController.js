@@ -25,7 +25,12 @@ router.post('/authenticate', function (req, res) {
         })
         .then(user => {
             // Create token if the password matched and no error was thrown
-            var token = jwt.sign(user, config.sessionSecret, {
+            let payload={
+                id:user._id.toString(),
+                extra:"hi :)"
+            };
+            //Base64 encoded token
+            var token = jwt.sign(payload, config.sessionSecret, {
                 expiresIn: 10080 // in seconds
             });
             res.status(200);
